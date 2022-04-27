@@ -15,7 +15,7 @@ import socket
 import sys
 
 HOST = '' # 0.0.0.0 accepts all connections 
-PORT = 80 # have to use 'sudo python3 xxx.py' to use port 80
+PORT = 1024 # have to use 'sudo python3 xxx.py' to use port 80
 
 #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
 try:
