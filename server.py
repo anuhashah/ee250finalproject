@@ -13,7 +13,7 @@
 
 import socket
 import sys
-import camera 
+#import camera 
 
 HOST = '' # 0.0.0.0 accepts all connections 
 PORT = 6666 # have to use 'sudo python3 xxx.py' to use port 80
@@ -38,8 +38,8 @@ soc.listen(5)
 while True:
 	conn, addr = soc.accept() # accepts connection request from client
 	print('Got connection from', addr) # prints the address of the client
-
-	camera()
+	con.sendall(b'Would you like to take a picture? Y/N: ')
+	#camera()
 	
 	conn.sendall(b'Got a request!') # sends byte message to client to view in web browser
 	conn.close()
