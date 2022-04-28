@@ -28,10 +28,12 @@ def capture():
 
 	# Capture image 
 	ret, frame = cam.read()
-	result, frame = cv2.imencode('.jpg', frame, encode_param)
-	data = zlib.compress(pickle.dumps(frame, 0))
-	data = pickle.dumps(frame, 0)
-	return data
+	#result, frame = cv2.imencode('.jpg', frame, encode_param)
+	#data = zlib.compress(pickle.dumps(frame, 0))
+	#data = pickle.dumps(frame, 0)
+	#return data
+
+	cv2.imwrite('image.jpg', frame)
 
 #cv2.namedWindow("Preview")
 #cap = cv2.VideoCapture(0)
