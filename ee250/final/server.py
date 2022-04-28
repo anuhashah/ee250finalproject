@@ -39,7 +39,8 @@ while True:
 		#preview()
 		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
 		conn.sendall(data) # sends byte message to client 
-
+		openimg.terminate()
+		openimg.kill()
 		conn.close()
 	else:
 		conn.close()
