@@ -13,9 +13,9 @@ from grove_rgb_lcd import*
 
 def LCDcontrol(RGB, hexadecimal):
     try:
-        color = colorName()
+        color = colorName(hexadecimal)
         setRGB(RGB[0],RGB[1],RGB[2])
-        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" )
+        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" + color)
     except(IOError, TypeError) as e:
         print("Error")
 
