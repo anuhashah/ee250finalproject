@@ -28,7 +28,7 @@ print('Socket now listening')
 while True:
 	conn, addr = server_socket.accept() # accepts connection request from client
 	request = conn.recv(1000)
-	if request == b"Take Photo":
+	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
 		data = capture()
 		conn.sendall(data) # sends byte message to client 

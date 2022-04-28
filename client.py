@@ -11,7 +11,7 @@ except socket.error: # generic socket exception/error
 
 client_socket.connect(('172.20.10.2', 6666)) # Macbook IP Address 
 
-request = b"Take Photo"
+request = b"PHOTO"
 
 try:
 	client_socket.sendall(request)
@@ -21,4 +21,4 @@ except socket.error:
 
 data = client_socket.recv(4096)
 print(data)
-client_socket.close()
+#client_socket.close()
