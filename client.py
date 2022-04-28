@@ -20,6 +20,6 @@ except socket.error:
 	print("Failed to send.")
 	sys.exit()
 
-data = pickle.loads(connection.recv(4096))
+data = pickle.loads(client_socket.recv(4096))
 print(data)
 client_socket.close()
