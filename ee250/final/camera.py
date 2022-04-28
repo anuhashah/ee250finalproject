@@ -27,6 +27,10 @@ def capture():
 	# JPEG quality from 0 to 100, with 100 being best (95 is default)
 	encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100] 
 
+	# Adjust camera lighting
+	ramp_frames = 30
+    for i in range(ramp_frames):
+        temp = camera.read()
 	# Capture image 
 	ret, frame = cam.read()
 	#result, frame = cv2.imencode('.jpg', frame, encode_param)
