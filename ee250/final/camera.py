@@ -30,7 +30,7 @@ def capture():
 	# Adjust camera lighting
 	ramp_frames = 30
 	for i in range(ramp_frames):
-		temp = camera.read()
+		temp = cam.read()
 	# Capture image 
 	ret, frame = cam.read()
 	#result, frame = cv2.imencode('.jpg', frame, encode_param)
