@@ -19,4 +19,5 @@ def colorName(hexadecimal):
 
     # Removes tabs and enters
     color = re.sub(r"[\n\t]*", "", text) 
+    print(color)
     return color
