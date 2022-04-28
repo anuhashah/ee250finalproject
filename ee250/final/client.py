@@ -27,7 +27,7 @@ data = data[0]
 hexa = hexadecimal(data)
 print("RGB: ("  + str(data[0]) + ", " + str(data[1]) + ", " + str(data[2]) + ") = Hexadecimal: " + hexa)
 
-color()
+color(data, hexa)
 
 
 client_socket.close()
