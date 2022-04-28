@@ -37,7 +37,7 @@ cam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 
 img_counter = 0
 
-encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]
 
 while True:
     ret, frame = cam.read()

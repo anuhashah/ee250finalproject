@@ -13,7 +13,7 @@ except socket.error: # generic socket exception/error
 	sys.exit()
 
 try:
-	soc.bind((HOST, PORT)) # binding socket to client IP 
+	soc.bind((HOST, PORT)) # binding socket to port  
 except socket.error:
 	print("Bind failed.")
 	sys.exit()
@@ -25,10 +25,10 @@ soc.listen(5)
 while True:
 	conn, addr = soc.accept() # accepts connection request from client
 	print('Got connection from', addr) # prints the address of the client
-	con.sendall(b'Would you like to take a picture? Y/N: ')
-	#camera()
+	#conn.sendall(b'Would you like to take a picture? Y/N: ')
+	camera()
 	
-	conn.sendall(b'Got a request!') # sends byte message to client to view in web browser
+	#conn.sendall(b'Got a request!') # sends byte message to client to view in web browser
 	conn.close()
 	break
 

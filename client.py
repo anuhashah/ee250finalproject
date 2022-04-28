@@ -1,13 +1,17 @@
 import sys
 
 try:
-	#create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
-	ms = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+    #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+    print("Socket created")
 except socket.error: # generic socket exception/error
-	print("Failed to create socket.")
-	sys.exit()
+    print("Failed to create socket.")
+    sys.exit()
 
-ms.connect(('10.25.181.189', 6666)) # USC Guest Wireless Mac IP Address = 10.25.181.189, arbitrary port that won't be used
+client_socket.connect(('172.20.10.9', 8485)) # Raspberry Pi IP Address 
+connection = client_socket.makefile('wb')
+
+client_socket.connect(('172.20.10.9', 6666)) # Raspberry Pi IP address, arbitrary port that won't be used
 message = b"Here is my request!"
 
 try:
@@ -16,6 +20,6 @@ except socket.error:
 	print("Failed to send.")
 	sys.exit()
 
-# data = ms.recv(1000)
+# data = client_socket.recv(1000)
 # print(data)
-ms.close()
+client_socket.close()
