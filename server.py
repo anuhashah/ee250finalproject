@@ -7,13 +7,15 @@ PORT = 6666 # have to use 'sudo python3 xxx.py' to use port 80
 
 #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
 try:
-	soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+	soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	print('Socket created') 
 except socket.error: # generic socket exception/error
 	print("Failed to create socket.")
 	sys.exit()
 
 try:
 	soc.bind((HOST, PORT)) # binding socket to port  
+	print('Socket bind complete')
 except socket.error:
 	print("Bind failed.")
 	sys.exit()
@@ -21,6 +23,7 @@ except socket.error:
 # server listens for request + handles one request at a time and 
 # argument 5 says how many requests can wait while server is handling one request
 soc.listen(5) 
+print('Socket now listening')
 
 while True:
 	conn, addr = soc.accept() # accepts connection request from client

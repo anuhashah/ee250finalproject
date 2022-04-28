@@ -15,7 +15,7 @@ client_socket.connect(('172.20.10.9', 6666)) # Raspberry Pi IP address, arbitrar
 message = b"Here is my request!"
 
 try:
-	ms.sendall(message)
+	client_socket.sendall(message)
 except socket.error:
 	print("Failed to send.")
 	sys.exit()
