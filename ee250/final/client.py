@@ -2,7 +2,6 @@ import socket
 import sys
 import pickle
 from RGBtoHex import hexadecimal
-from colorfinder import colorName
 from lcdscreen import LCDcontrol
 
 try:
