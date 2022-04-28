@@ -5,8 +5,6 @@ import time
 import zlib
 
 
-
-
 HIGH_VALUE = 10000
 WIDTH = HIGH_VALUE
 HEIGHT = HIGH_VALUE
