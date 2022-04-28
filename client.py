@@ -9,7 +9,7 @@ except socket.error: # generic socket exception/error
     print("Failed to create socket.")
     sys.exit()
 
-client_socket.connect(('172.20.10.9', 8485)) # Raspberry Pi IP Address 
+client_socket.connect(('172.20.10.2', 8485)) # Macbook IP Address 
 connection = client_socket.makefile('wb')
 
 client_socket.connect(('172.20.10.9', 6666)) # Raspberry Pi IP address, arbitrary port that won't be used

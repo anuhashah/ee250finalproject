@@ -30,8 +30,7 @@ ret, frame = cam.read()
 result, frame = cv2.imencode('.jpg', frame, encode_param)
 data = zlib.compress(pickle.dumps(frame, 0))
 data = pickle.dumps(frame, 0)
-print(data)
-
+return data
 
 #cv2.namedWindow("Preview")
 #cap = cv2.VideoCapture(0)

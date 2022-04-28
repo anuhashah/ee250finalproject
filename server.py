@@ -29,9 +29,8 @@ while True:
 	conn, addr = soc.accept() # accepts connection request from client
 	print('Got connection from', addr) # prints the address of the client
 	#conn.sendall(b'Would you like to take a picture? Y/N: ')
-	camera()
-	
-	#conn.sendall(b'Got a request!') # sends byte message to client to view in web browser
+	data = camera()
+	conn.sendall(data) # sends byte message to client to view in web browser
 	conn.close()
 	break
 
