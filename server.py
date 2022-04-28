@@ -1,5 +1,6 @@
 import socket
 import sys
+import pickle
 from camera import capture
 
 HOST = '' # 0.0.0.0 accepts all connections 
@@ -30,9 +31,8 @@ while True:
 	request = conn.recv(1000)
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
-		capture()
-		#data = capture()
-		#conn.sendall(data) # sends byte message to client 
+		data = pickle.dumps(capture())
+		conn.sendall(data) # sends byte message to client 
 		conn.close()
 	else:
 		conn.close()
