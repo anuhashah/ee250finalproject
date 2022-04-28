@@ -1,3 +1,5 @@
 from PIL import Image
-with Image.open('image.jpg') as img:
-    img.show()
+
+def preview():
+	with Image.open('image.jpg') as img:
+    	img.show()

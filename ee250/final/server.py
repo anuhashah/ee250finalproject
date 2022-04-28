@@ -2,7 +2,7 @@ import socket
 import sys
 import pickle
 from camera import capture
-import imviewer
+from imviewer import preview
 from dominantcolors import get_image_dominant_colors
 
 HOST = '' # 0.0.0.0 accepts all connections 
