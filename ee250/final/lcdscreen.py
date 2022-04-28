@@ -11,7 +11,6 @@ from grove_rgb_lcd import*
 
 def color(RGB, hexadecimal):
     try:
-        print(str(RGB[0] + " " + str(RGB[1]) + " " + str(RGB[2])
         setRGB(RGB[0],RGB[1],RGB[2])
         setText_norefresh("Hex: " + hexadecimal + "\n Color: ")
     except(IOError, TypeError) as e:
