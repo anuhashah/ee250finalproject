@@ -34,7 +34,7 @@ while True:
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
 		capture()
-		imviewer()
+		preview()
 		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
 		conn.sendall(data) # sends byte message to client 
 		conn.close()
