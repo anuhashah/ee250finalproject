@@ -15,7 +15,7 @@ def LCDcontrol(RGB, hexadecimal):
     try:
         color = colorName()
         setRGB(RGB[0],RGB[1],RGB[2])
-        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" + color)
+        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" )
     except(IOError, TypeError) as e:
         print("Error")
 
