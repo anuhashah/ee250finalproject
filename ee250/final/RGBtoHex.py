@@ -9,6 +9,3 @@ def hexadecimal(RGB):
   return "#{0:02x}{1:02x}{2:02x}".format(clamp(r), clamp(g), clamp(b))
 
 
-data = [73,128,99]
-hexa = hexadecimal(data)
-print("RGB: ("  + str(data[0]) + ", " + str(data[1]) + ", " + str(data[2]) + ") = Hexadecimal: " + hexa)
