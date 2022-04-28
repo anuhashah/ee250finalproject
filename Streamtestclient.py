@@ -18,13 +18,22 @@ except socket.error: # generic socket exception/error
 client_socket.connect(('172.20.10.9', 8485)) # Raspberry Pi IP Address 
 connection = client_socket.makefile('wb')
 
-cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
+HIGH_VALUE = 10000
+WIDTH = HIGH_VALUE
+HEIGHT = HIGH_VALUE
+
+cam = cv2.VideoCapture(0)
+
+# This gives maximum resolution of any device camera (slow)
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
+
+# This gives small frame size (faster)
 #cam.set(3, 320);
 #cam.set(4, 240);
 
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)  # set new dimensionns to cam object (not cap)
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 img_counter = 0
 
