@@ -11,14 +11,14 @@ except socket.error: # generic socket exception/error
 
 client_socket.connect(('172.20.10.2', 6666)) # Macbook IP Address 
 
-message = b"Here is my request!"
+request = b"Take Photo"
 
 try:
-	client_socket.sendall(message)
+	client_socket.sendall(request)
 except socket.error:
 	print("Failed to send.")
 	sys.exit()
 
-# data = client_socket.recv(1000)
-# print(data)
+data = client_socket.recv(4096)
+print(data)
 client_socket.close()

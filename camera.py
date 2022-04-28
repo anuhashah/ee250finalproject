@@ -5,32 +5,33 @@ import time
 import zlib
 
 
-HIGH_VALUE = 10000
-WIDTH = HIGH_VALUE
-HEIGHT = HIGH_VALUE
+def capture():
+	HIGH_VALUE = 10000
+	WIDTH = HIGH_VALUE
+	HEIGHT = HIGH_VALUE
 
-cam = cv2.VideoCapture(0)
+	cam = cv2.VideoCapture(0)
 
-# This gives maximum resolution of any device camera (slow for video)
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
+	# This gives maximum resolution of any device camera (slow for video)
+	fourcc = cv2.VideoWriter_fourcc(*'XVID')
+	cam.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
+	cam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 
-# This gives small frame size (faster)
-#cam.set(3, 320);
-#cam.set(4, 240);
+	# This gives small frame size (faster)
+	#cam.set(3, 320);
+	#cam.set(4, 240);
 
 
 
-# JPEG quality from 0 to 100, with 100 being best (95 is default)
-encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100] 
+	# JPEG quality from 0 to 100, with 100 being best (95 is default)
+	encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100] 
 
-# Capture image 
-ret, frame = cam.read()
-result, frame = cv2.imencode('.jpg', frame, encode_param)
-data = zlib.compress(pickle.dumps(frame, 0))
-data = pickle.dumps(frame, 0)
-return data
+	# Capture image 
+	ret, frame = cam.read()
+	result, frame = cv2.imencode('.jpg', frame, encode_param)
+	data = zlib.compress(pickle.dumps(frame, 0))
+	data = pickle.dumps(frame, 0)
+	return data
 
 #cv2.namedWindow("Preview")
 #cap = cv2.VideoCapture(0)
