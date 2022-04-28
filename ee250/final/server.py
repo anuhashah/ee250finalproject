@@ -2,6 +2,7 @@ import socket
 import sys
 import pickle
 from camera import capture
+import cv2
 #import subprocess
 #from imviewer import preview
 from dominantcolors import get_image_dominant_colors
@@ -35,7 +36,7 @@ while True:
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
 		capture()
-		cv2.imshow(window_name, image)
+		cv2.imshow("Preview", "image.jpg")
 		#openimg = subprocess.Popen(["open", "-W", "image.jpg"])
 		#preview()
 		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
