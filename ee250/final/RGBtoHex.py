@@ -3,7 +3,7 @@ def clamp(x):
 
 
 def hexadecimal(RGB):
-  r = clamp(RGB[0])
-  g = clamp(RGB[1])
-  b = clamp(RGB[2])
+  r = clamp(int(RGB[0]))
+  g = clamp(int(RGB[1]))
+  b = clamp(int(RGB[2]))
   return "#{0:02x}{1:02x}{2:02x}".format(clamp(r), clamp(g), clamp(b))
