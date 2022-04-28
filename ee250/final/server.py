@@ -2,6 +2,7 @@ import socket
 import sys
 import pickle
 from camera import capture
+from dominantcolors import get_image_dominant_colors
 
 HOST = '' # 0.0.0.0 accepts all connections 
 PORT = 6666 # unused port
@@ -31,7 +32,8 @@ while True:
 	request = conn.recv(1000)
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
-		data = pickle.dumps(capture())
+		capture()
+		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
 		conn.sendall(data) # sends byte message to client 
 		conn.close()
 	else:

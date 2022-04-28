@@ -37,8 +37,6 @@ def capture():
 	cv2.imwrite('image.jpg', frame)
 
 	dominant_color = get_image_dominant_colors(image_path='image.jpg',num_colors=1)
-	print(dominant_color)
-
 	return dominant_color
 
 
