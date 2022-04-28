@@ -1,8 +1,10 @@
 import cv2
-import pickle
-import io 
-import time
-import zlib
+#import pickle
+#import io 
+#import time
+#import zlib
+from dominantcolors import get_dominant_colors_for
+from PIL import Image
 
 
 def capture():
@@ -34,6 +36,12 @@ def capture():
 	#return data
 
 	cv2.imwrite('image.jpg', frame)
+
+	image = Image.open("/path/to/image.jpg", num_colors=3)
+	dominant_colors = get_dominant_colors_for(image)
+	print(dominant_colors)
+
+
 
 #cv2.namedWindow("Preview")
 #cap = cv2.VideoCapture(0)
