@@ -21,4 +21,4 @@ except socket.error:
 
 data = client_socket.recv(4096)
 print(data)
-#client_socket.close()
+client_socket.close()
