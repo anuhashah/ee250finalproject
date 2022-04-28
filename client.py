@@ -1,5 +1,6 @@
 import socket
 import sys
+import pickle
 
 try:
     #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
