@@ -1,5 +1,7 @@
 import sys
 import time
+from colorfinder import colorName
+
 # By appending the folder of all the GrovePi libraries to the system path here,
 # we are successfully `import grovepi`
 sys.path.append('../../Software/Python/')
@@ -9,10 +11,11 @@ sys.path.append('../../Software/Python/grove_rgb_lcd')
 import grovepi
 from grove_rgb_lcd import*
 
-def color(RGB, hexadecimal):
+def LCDcontrol(RGB, hexadecimal):
     try:
+        color = colorName()
         setRGB(RGB[0],RGB[1],RGB[2])
-        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" + "Color: ")
+        setText_norefresh("Hex: #" + hexadecimal + "    "+ "\n" + "Color: " + color)
     except(IOError, TypeError) as e:
         print("Error")
 

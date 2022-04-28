@@ -2,7 +2,8 @@ import socket
 import sys
 import pickle
 from RGBtoHex import hexadecimal
-from lcdscreen import color
+from colorfinder import colorName
+from lcdscreen import LCDcontrol
 
 try:
     #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
@@ -27,7 +28,6 @@ data = data[0]
 hexa = hexadecimal(data)
 print("RGB: ("  + str(data[0]) + ", " + str(data[1]) + ", " + str(data[2]) + ") = Hexadecimal: #" + hexa)
 
-color(data, hexa)
-
+LCDcontrol(data, hexa)
 
 client_socket.close()

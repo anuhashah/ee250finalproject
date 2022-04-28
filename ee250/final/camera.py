@@ -3,7 +3,7 @@ import cv2
 #import io 
 #import time
 #import zlib
-from dominantcolors import get_image_dominant_colors
+
 
 
 def capture():
@@ -36,8 +36,8 @@ def capture():
 
 	cv2.imwrite('image.jpg', frame)
 
-	dominant_color = get_image_dominant_colors(image_path='image.jpg',num_colors=1)
-	return dominant_color
+
+
 
 
 
