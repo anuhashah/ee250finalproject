@@ -30,8 +30,9 @@ while True:
 	request = conn.recv(1000)
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
-		data = capture()
-		conn.sendall(data) # sends byte message to client 
+		capture()
+		#data = capture()
+		#conn.sendall(data) # sends byte message to client 
 		conn.close()
 	else:
 		conn.close()
