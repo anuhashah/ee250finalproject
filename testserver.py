@@ -9,11 +9,21 @@ import zlib
 HOST=''
 PORT=8485
 
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-print('Socket created')
+#create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+    print('Socket created')
+except socket.error: # generic socket exception/error
+    print("Failed to create socket.")
+    sys.exit()
 
-s.bind((HOST,PORT))
-print('Socket bind complete')
+try:
+    s.bind((HOST, PORT)) # binding socket to client IP 
+    print('Socket bind complete')
+except socket.error:
+    print("Bind failed.")
+    sys.exit()
+
 s.listen(10)
 print('Socket now listening')
 

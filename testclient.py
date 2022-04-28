@@ -6,7 +6,15 @@ import time
 import pickle
 import zlib
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+try:
+    #create socket with arguments AF_INET (Address Family Internet) and SOCK_STREAM (TCP)
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+    print("Socket created")
+except socket.error: # generic socket exception/error
+    print("Failed to create socket.")
+    sys.exit()
+
 client_socket.connect(('10.25.152.103', 8485)) # 10.25.17.89 is USC Guest Wireless RPi 
 connection = client_socket.makefile('wb')
 
