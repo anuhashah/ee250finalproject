@@ -23,6 +23,7 @@ except socket.error:
 	sys.exit()
 
 data = pickle.loads(client_socket.recv(4096))
+data = data[0]
 hexa = hexadecimal(data)
 print(data + " = " + hexa)
 
