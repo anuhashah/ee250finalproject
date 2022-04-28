@@ -15,13 +15,16 @@ except socket.error: # generic socket exception/error
     print("Failed to create socket.")
     sys.exit()
 
-client_socket.connect(('10.25.152.103', 8485)) # 10.25.17.89 is USC Guest Wireless RPi 
+client_socket.connect(('172.20.10.9', 8485)) # Raspberry Pi IP Address 
 connection = client_socket.makefile('wb')
 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 
-cam.set(3, 320);
-cam.set(4, 240);
+#cam.set(3, 320);
+#cam.set(4, 240);
+
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)  # set new dimensionns to cam object (not cap)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 img_counter = 0
 
@@ -30,7 +33,7 @@ encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
 while True:
     ret, frame = cam.read()
     result, frame = cv2.imencode('.jpg', frame, encode_param)
-#    data = zlib.compress(pickle.dumps(frame, 0))
+    data = zlib.compress(pickle.dumps(frame, 0))
     data = pickle.dumps(frame, 0)
     size = len(data)
 
