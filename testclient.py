@@ -7,7 +7,7 @@ import pickle
 import zlib
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('0.25.181.189', 8485))
+client_socket.connect(('10.25.152.103', 8485)) # 10.25.17.89 is USC Guest Wireless RPi 
 connection = client_socket.makefile('wb')
 
 cam = cv2.VideoCapture(0)
