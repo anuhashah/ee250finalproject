@@ -2,8 +2,8 @@ import socket
 import sys
 import pickle
 from camera import capture
-#import subprocess
-from imviewer import preview
+import subprocess
+#from imviewer import preview
 from dominantcolors import get_image_dominant_colors
 
 HOST = '' # 0.0.0.0 accepts all connections 
@@ -35,12 +35,12 @@ while True:
 	if request == b"PHOTO":
 		print('Got connection from', addr) # prints the address of the client
 		capture()
-		#openimg = subprocess.Popen(["open", "-W", "image.jpg"])
-		preview()
+		openimg = subprocess.Popen(["open", "-W", "image.jpg"])
+		#preview()
 		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
 		conn.sendall(data) # sends byte message to client 
-		#openimg.terminate()
-		#openimg.kill()
+		openimg.terminate()
+		openimg.kill()
 		conn.close()
 	else:
 		conn.close()
