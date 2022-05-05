@@ -1,6 +1,8 @@
 import socket
 import sys
+import os
 import pickle
+#from xmlrpc.server import _DispatchArity2
 from camera import capture
 import subprocess
 #from imviewer import preview
@@ -38,7 +40,29 @@ while True:
 		openimg = subprocess.Popen(["open", "-W", "image.jpg"])
 		#preview()
 		data = pickle.dumps(get_image_dominant_colors(image_path='image.jpg',num_colors=1))
-		conn.sendall(data) # sends byte message to client 
+		conn.sendall(data) # sends byte message to client
+		picStats = os.stat('image.jpg')
+		#get the picSize and picLength
+		picSize = picStats.st_size
+		print(picSize)
+		print("ok")
+		picLength = len(str(picSize))
+		print(picLength)
+
+		conn.sendall(str(picLength).encode())
+		#send the pic size
+		conn.sendall(str(picSize).encode())
+
+		with open('image.jpg', 'rb') as file:
+			sendfile = file.read()
+		conn.sendall(sendfile)
+		#myfile = open('image.jpg', 'rb')
+
+		#data2 = myfile.read()
+		#data2 = pickle.dumps('image.jpg', 'rb')
+
+		#all_data = [data, data2]
+		#conn.sendall(data2) 
 		openimg.terminate()
 		openimg.kill()
 		conn.close()
