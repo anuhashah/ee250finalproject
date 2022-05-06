@@ -13,7 +13,7 @@ except socket.error: # generic socket exception/error
     print("Failed to create socket.")
     sys.exit()
 
-client_socket.connect(('192.168.36.128', 6666)) # <-- VM Address, Macbook IP Address: 172.20.10.2
+client_socket.connect(('172.20.10.2', 6666)) # Macbook IP Address 
 
 request = b"PHOTO"
 
